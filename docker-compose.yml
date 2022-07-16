@@ -9,5 +9,3 @@ services:
       - "9090:80"
     volumes:
       - ./app/:/var/www/
-volumes:
-  app:
