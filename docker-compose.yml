@@ -1,0 +1,13 @@
+version: "3.8"
+services:
+  app:
+    build:
+      dockerfile: docker/php/Dockerfile
+      context: .
+    container_name: rez-widget-app
+    ports:
+      - "9090:80"
+    volumes:
+      - ./app/:/var/www/
+volumes:
+  app:
