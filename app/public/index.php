@@ -89,8 +89,6 @@ $sett
             ->setQueryFormParams(['client_name' => $_POST['reservation_name'], 'client_surname' => $_POST['reservation_surname']])
             ->process();
 
-        print_r($connVisitsRes->getHttpResponseBody());
-
         if($connVisitsRes->isResponseCodeSuccess()) {
             header("Location: /?confirm=1&id=$_GET[id]");
             return;
