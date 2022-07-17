@@ -19,7 +19,7 @@ This software allows you to test connection to REST API and use:
 # TODO - improvements:
 
 - structures for config based on .env file,
-- some cache of requests data,
+- some cache of settings data,
 - better validators and error handling,
 - logs aggregation Open Telemetry,
 - unit tests for requests (on mocks),

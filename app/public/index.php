@@ -1,7 +1,30 @@
 <?php
 ob_start();
 require_once '../Connect.php';
+require_once '../Settings.php';
 $conn = new Connect();
+
+$connAllPlacesRes = clone $conn;
+$connAllPlacesRes
+    ->setQueryMethod('GET')
+    ->setQueryPath('places')
+    ->process();
+
+$places = json_decode($connAllPlacesRes->getHttpResponseBody(), true);
+
+$connAllWorkersRes = clone $conn;
+$connAllWorkersRes
+    ->setQueryMethod('GET')
+    ->setQueryPath('workers')
+    ->process();
+
+$workers = json_decode($connAllWorkersRes->getHttpResponseBody(), true);
+
+$sett = new Settings();
+$sett
+    ->setPlacesDetails($places)
+    ->setWorkersDetails($workers);
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -113,8 +136,8 @@ $conn = new Connect();
 
                 echo '<tr>';
                 echo '<td>'.$array['id'].'</td>';
-                echo '<td>'.$array['id_place'].'</td>';
-                echo '<td>'.$array['id_worker'].'</td>';
+                echo '<td>'.$sett->getNameOfPlaceById($array['id_place']).'</td>';
+                echo '<td>'.$sett->getNameOfWorkerById($array['id_worker']).'</td>';
                 echo '<td>'.$array['date_start'].'</td>';
                 echo '<td>'.$array['date_to'].'</td>';
                 echo '<td>'.$isReserved.'</td>';
