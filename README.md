@@ -15,3 +15,12 @@ This software allows you to test connection to REST API and use:
 # Run API on host by Docker
 
 - visit: http://localhost:9090
+
+# TODO - improvements:
+
+- structures for config based on .env file,
+- some cache of requests data,
+- better validators and error handling,
+- logs aggregation Open Telemetry,
+- unit tests for requests (on mocks),
+- use DRY instead of copy/paste in methods,
