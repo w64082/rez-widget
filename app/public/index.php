@@ -98,7 +98,7 @@ $sett
     <div class="row-fluid">
         <form class="well form-inline" method="post">
             <input name="reservation_name" type="text" class="input-small" placeholder="Name">
-            <input name="reservation_surname" type="password" class="input-small" placeholder="Surname">
+            <input name="reservation_surname" type="text" class="input-small" placeholder="Surname">
             <button type="submit" class="btn">Confirm</button>
         </form>
     </div>
